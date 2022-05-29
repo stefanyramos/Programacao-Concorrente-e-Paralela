@@ -74,19 +74,6 @@ void matrix_dgemm_2(int n, double *restrict _C, double *restrict _A, double *res
                     for (j = jj; j < jj+blocksize; j++)
                         for (k = kk; k < kk+blocksize; k++)
                             C(i, j) += A(i, k)*B(k, j);
-                            //C((ii+i), (jj+j)) += A((ii+i), (kk+k))*B((kk+k), (jj+j));
-
-
-/*
-    for(ii=0; i<n; ii+=blocksize)
-            for(jj=0; i<n; jj+=blocksize)
-                for(kk=0; i<n; kk+=blocksize)
-                    for (i = 0; i < 0+blocksize; i++)
-                        for (j = 0; j < 0+blocksize; j++)
-                            for (k = 0; k < 0+blocksize; k++)
-                                //C(i, j) += A(i, k)*B(k, j);
-                                C((ii+i), (jj+j)) += A((ii+i), (kk+k))*B((kk+k), (jj+j));
-*/
 
     #undef A
     #undef B
